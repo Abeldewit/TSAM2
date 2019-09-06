@@ -1,3 +1,4 @@
 # Ignore all excess files created by CLion
 cmake-build-debug/
 .idea/
+main
