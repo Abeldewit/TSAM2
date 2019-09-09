@@ -1,12 +1,12 @@
 IP=130.208.243.61
 
-output: main
+output: sniffer
 	@echo "Files made"
 
-run: main
+run: sniffer
 	@echo "Running sniffer on $(IP)"
-	@sudo ./main $(IP) 4000 4100
+	@sudo ./sniffer $(IP) 4000 4100
 
 
-main: main.cpp
-	g++ -Wall -std=c++14 main.cpp -o main
+sniffer: main.cpp
+	g++ -Wall -std=c++14 main.cpp -o sniffer
