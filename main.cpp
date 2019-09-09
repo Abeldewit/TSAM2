@@ -43,12 +43,12 @@ int main(int argc, char* argv[])
     iph->ip_ttl = 255;
     iph->ip_p = 17;
     iph->ip_sum = 0;
-    iph->ip_src = source.sin_addr;       /* self explanatory :P */
+    iph->ip_src = source.sin_addr;
     iph->ip_dst = destination.sin_addr;
-    iph->ip_hl = 5;              /* Header length. 4 times this is 20 bytes. Mac value is 15 */
-    iph->ip_v = 4;          /* IPv4 used */
-    iph->ip_tos = 0;              /* Type of service. 0=> Routine. Kernel might replace this with DSCP/ECN :(.  */
-    iph->ip_len = sizeof(datagram);     /* Total length of the datagram */
+    iph->ip_hl = 5;
+    iph->ip_v = 4;
+    iph->ip_tos = 0;
+    iph->ip_len = sizeof(datagram);
     iph->ip_id = htons (14118);
 
     udph->uh_sport = source.sin_port;
