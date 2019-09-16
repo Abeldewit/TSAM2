@@ -1,15 +1,16 @@
 IP=130.208.243.61
 
-output: sniffer
-	@echo "Files made"
+output: sniffer raw
+	@echo "Files compiled"
 
-run: sniffer
-	@echo "Running sniffer on $(IP)"
-	@sudo ./sniffer $(IP) 4000 4100
+sniffer: sniffer.cpp
+	@g++ -Wall -std=c++11 -pthread sniffer.cpp -o sniffer
 
-runn: sniffer
-	@echo "Running sniffer on $(IP)"
-	@sudo ./sniffer $(IP) 4000 4100 -n
+raw: raw.cpp
+	@g++ -Wall -std=c++11 -pthread raw.cpp -o raw
 
-sniffer: main.cpp
-	g++ -Wall -std=c++11 -pthread main.cpp -o sniffer
+srun:
+	@./sniffer $(IP) 4000 4100
+
+rrun:
+	@sudo ./raw $(IP)
